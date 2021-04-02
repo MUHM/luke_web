@@ -82,7 +82,7 @@ const Navigation = (props, context) => {
       openKeys={state.openKeys}
       hasArrow={false}
       mode={isCollapse ? 'popup' : 'inline'}
-      style={{ overflow: "hidden" }}
+      style={{ overflow: 'hidden' }}
     >
       {getNavMenuItems(state.menuTree, 0)}
     </Nav>

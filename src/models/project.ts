@@ -1,13 +1,9 @@
 import projectService from '@/services/project';
+import { ISelectItem } from '@/typings';
 
 interface IState {
   all: [];
 }
-interface INode {
-  label: string;
-  value: number;
-}
-
 interface IProject {
   state: { all: any },
   effects: any,
@@ -23,7 +19,7 @@ const project: IProject = {
     async fetchProjects() {
       const res = await projectService.getAll();
       if (res.code === 200) {
-        const data: INode[] = [];
+        const data: ISelectItem[] = [];
         for (let i = 0; i < res.data.rows.length; i++) {
           data.push({ label: res.data.rows[i].name, value: res.data.rows[i].id });
         }

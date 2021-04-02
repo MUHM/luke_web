@@ -4,7 +4,7 @@ import { Drawer, Button, Form, Input, Field, Message, TreeSelect, Select, Icon }
 import DrawerButton from '@/components/DrawerButton';
 import moduleService from '@/services/module';
 
-const EditDrawer = (props: { recordId: number; fetchData: Function; }) => {
+const EditDrawer = (props: { recordId: number; fetchData: Function }) => {
   const { recordId, fetchData } = props;
   const field = Field.useField();
   const { init } = field;
@@ -42,7 +42,7 @@ const EditDrawer = (props: { recordId: number; fetchData: Function; }) => {
   const selectRender = item => {
     return (
       <span>
-        <Icon type={item.type} size="xs" style={{ color: item.value }} />{" "}
+        <Icon type={item.type} size="xs" style={{ color: item.value }} />{' '}
         {item.label}
       </span>
     )
@@ -54,7 +54,7 @@ const EditDrawer = (props: { recordId: number; fetchData: Function; }) => {
         编辑</Button >
       <Drawer
         width={520}
-        closeMode={'mask'}
+        closeMode="mask"
         onClose={onClose}
         visible={drawerVisible}
         title="模块管理-编辑"
@@ -77,7 +77,7 @@ const EditDrawer = (props: { recordId: number; fetchData: Function; }) => {
           <Form.Item label="父模块"  >
             <TreeSelect
               showSearch
-              style={{ width: "100%" }}
+              style={{ width: '100%' }}
               {...init('parentId')}
               dataSource={moduleState.tree}
               treeDefaultExpandAll
@@ -104,7 +104,7 @@ const EditDrawer = (props: { recordId: number; fetchData: Function; }) => {
           </Form.Item>
           <Form.Item label="模块图标"  >
             <Select
-              style={{ width: "100%" }}
+              style={{ width: '100%' }}
               dataSource={iconState.data}
               itemRender={selectRender}
               valueRender={selectRender}

@@ -8,11 +8,11 @@
             "name": "@alifd/theme-design-pro"
           },
           {
-            "name": "@alifd/theme-1",
-            "default": true
+            "name": "@alifd/theme-1"
           },
           {
-            "name": "@alifd/theme-4"
+            "name": "@alifd/theme-4",
+            "default": true
           }
         ]
       }

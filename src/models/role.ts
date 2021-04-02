@@ -1,11 +1,8 @@
 import roleService from '@/services/role';
+import { ISelectItem } from '@/typings';
 
 interface IState {
   all: [];
-}
-interface INode {
-  label: string;
-  value: number;
 }
 
 export default {
@@ -17,7 +14,7 @@ export default {
     async fetchRoles() {
       const res = await roleService.getAll();
       if (res.code === 200) {
-        const data: INode[] = [];
+        const data: ISelectItem[] = [];
         for (let i = 0; i < res.data.rows.length; i++) {
           data.push({ label: res.data.rows[i].name, value: res.data.rows[i].id });
         }

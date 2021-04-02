@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Shell, ConfigProvider } from '@alifd/next';
-import PageNav from './components/PageNav';
-// import GlobalSearch from '@/components/GlobalSearch';
+import GlobalSearch from '@/components/GlobalSearch';
 import Notice from '@/components/Notice';
 import SolutionLink from '@/components/SolutionLink';
 import HeaderAvatar from '@/components/HeaderAvatar';
 import Logo from '@/components/Logo';
 import Footer from '@/components/Footer';
-import Clock from '@/components/Clock';
 import accountService from '@/services/account';
+import PageNav from './components/PageNav';
 
 (function () {
   const throttle = function (type: string, name: string, obj: Window = window) {
@@ -91,13 +90,14 @@ export default function BasicLayout({
             marginRight: 10,
           }}
         >
-          <Clock />
+          <GlobalSearch />
+          {/* <Clock /> */}
         </Shell.Navigation>
         <Shell.Action>
           <Notice />
           <SolutionLink
             url="/"
-            title="用户端"
+            title=""
             icon="favorites-filling"
           />
           <HeaderAvatar

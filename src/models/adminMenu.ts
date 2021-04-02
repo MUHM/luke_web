@@ -1,5 +1,6 @@
 import accountService from '@/services/account';
 import moduleService from '@/services/module';
+import { ISelectItem } from '@/typings';
 import { WebCache } from '@/utils/cache';
 
 interface IState {
@@ -56,6 +57,7 @@ const cache = new WebCache<ITreeNode[]>();
 export default {
   state: {
     menuTree: [],
+    menuSearch: [],
     openKeys: [],
   },
 
@@ -85,12 +87,31 @@ export default {
       }
       const menuData = cache.getJSON(`${credentials.user.id}_admin_menu_data`);
       if (menuData) {
-        dispatch.adminMenu.update({ menuTree: initMenu(menuData, null) });
+        const menuSearch: ISelectItem[] = [];
+        menuData.forEach(item => {
+          if (item.path) {
+            menuSearch.push({ label: item.name, value: item.path });
+          }
+        });
+        dispatch.adminMenu.update({
+          menuTree: initMenu(menuData, null),
+          menuSearch,
+        });
         return;
       }
       const result = await moduleService.getAdminMenu();
       if (result?.code === 200) {
-        dispatch.adminMenu.update({ menuTree: initMenu(result.data, null) });
+
+        const menuSearch: ISelectItem[] = [];
+        result.data.forEach(item => {
+          if (item.path) {
+            menuSearch.push({ label: item.name, value: item.path });
+          }
+        });
+        dispatch.adminMenu.update({
+          menuTree: initMenu(result.data, null),
+          menuSearch,
+        });
         cache.setJSON(`${credentials.user.id}_admin_menu_data`, result.data);
       }
     },

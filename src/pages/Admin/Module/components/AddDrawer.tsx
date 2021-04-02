@@ -38,7 +38,7 @@ const AddDrawer = (props: { fetchData: Function }) => {
   const selectRender = item => {
     return (
       <span>
-        <Icon type={item.type} size="xs" style={{ color: item.value }} />{" "}
+        <Icon type={item.type} size="xs" style={{ color: item.value }} />{' '}
         {item.label}
       </span>
     )
@@ -52,11 +52,11 @@ const AddDrawer = (props: { fetchData: Function }) => {
       <Drawer
         title="模块管理-新增"
         width={520}
-        closeMode={'mask'}
+        closeMode="mask"
         onClose={onClose}
         visible={drawerVisible}
       >
-      <DrawerButton loading={loading} onOk={onOk} onClose={onClose} />
+        <DrawerButton loading={loading} onOk={onOk} onClose={onClose} />
         <Form field={field} labelCol={{ fixedSpan: 7 }} wrapperCol={{ span: 14 }}>
           <Form.Item required label="模块名称" >
             <Input
@@ -68,7 +68,7 @@ const AddDrawer = (props: { fetchData: Function }) => {
           <Form.Item label="父模块"  >
             <TreeSelect
               showSearch
-              style={{ width: "100%" }}
+              style={{ width: '100%' }}
               {...init('parentId')}
               dataSource={moduleState.tree}
               treeDefaultExpandAll
@@ -95,7 +95,7 @@ const AddDrawer = (props: { fetchData: Function }) => {
           </Form.Item>
           <Form.Item label="模块图标"  >
             <Select
-              style={{ width: "100%" }}
+              style={{ width: '100%' }}
               dataSource={iconState.data}
               itemRender={selectRender}
               valueRender={selectRender}
