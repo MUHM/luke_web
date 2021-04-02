@@ -1,0 +1,60 @@
+{
+  "name": "@alifd/fusion-design-pro",
+  "version": "0.1.0",
+  "description": "使用 TypeScript，包含大量 UI 区块，比如图表、表单等。",
+  "dependencies": {
+    "@alifd/next": "^1.22.16",
+    "@alifd/theme-1": "^0.3.4",
+    "@alifd/theme-4": "^0.3.4",
+    "@alifd/theme-design-pro": "^0.6.3",
+    "@antv/data-set": "^0.10.2",
+    "@antv/l7": "^2.2.41",
+    "@antv/l7-maps": "^2.2.41",
+    "@antv/l7-react": "^2.2.41",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "ahooks": "^2.10.0",
+    "bizcharts": "^4.0.15",
+    "crypto-js": "^4.0.0",
+    "js-cookie": "^2.2.1",
+    "jsencrypt": "^3.1.0",
+    "lodash.debounce": "^4.0.8",
+    "moment": "^2.24.0",
+    "prop-types": "^15.5.8",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@ice/spec": "^1.0.0",
+    "build-plugin-fusion": "^0.1.0",
+    "build-plugin-moment-locales": "^0.1.0",
+    "eslint": "^6.0.1",
+    "ice.js": "^1.0.0",
+    "stylelint": "^13.2.0"
+  },
+  "scripts": {
+    "start": "icejs start",
+    "build": "icejs build",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint --cache --ext .js,.jsx ./",
+    "stylelint": "stylelint ./**/*.scss",
+    "design": "icejs build --design"
+  },
+  "ideMode": {
+    "name": "ice-react"
+  },
+  "iceworks": {
+    "type": "react",
+    "adapter": "adapter-react-v3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alibaba-fusion/materials/tree/master/scaffolds/fusion-design-pro"
+  },
+  "private": true,
+  "originTemplate": "@alifd/fusion-design-pro"
+}

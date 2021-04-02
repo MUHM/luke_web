@@ -1,0 +1,16 @@
+// 引入默认全局样式
+@import '@alifd/next/reset.scss';
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.next-nav-item a {
+  text-decoration: none;
+  color: inherit;
+}
+.next-menu-item-text > a {
+  display: inline-block;
+  text-decoration: none;
+  color: #333333;
+}
