@@ -1,12 +1,19 @@
 import React from 'react';
 import styles from './index.module.scss';
 
-export default function Footer() {
+export interface IFooterProps {
+  copyright?: string;
+  text?: string;
+  image?: string;
+}
+
+export default function Footer({ copyright, image, text }: IFooterProps) {
   return (
     <p className={styles.footer}>
-      <span className={styles.logo}>logo</span>
+      {image && <img src={image} />}
+      <span className={styles.logo}>{text}</span>
       <br />
-      <span className={styles.copyright}>© copyright</span>
+      <span className={styles.copyright}>{copyright}</span>
     </p>
   );
 }

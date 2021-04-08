@@ -1,5 +1,5 @@
 import projectService from '@/services/project';
-import { ISelectItem } from '@/typings';
+import { ISelectItem } from '@/luke';
 
 interface IState {
   all: [];
