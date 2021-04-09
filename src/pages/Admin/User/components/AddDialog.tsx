@@ -61,7 +61,7 @@ const AddDialog = (props) => {
           </Form.Item>
           <Form.Item label="所属角色"  >
             <Select
-              style={{ width: "100%" }}
+              style={{ width: '100%' }}
               mode="multiple"
               {...init('roles')}
               dataSource={roleData}

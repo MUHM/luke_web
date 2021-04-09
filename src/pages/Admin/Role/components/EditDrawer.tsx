@@ -63,7 +63,7 @@ const AddDrawer = (props) => {
       <Drawer
         title="角色管理-修改"
         width={520}
-        closeMode={'mask'}
+        closeMode="mask"
         onClose={onClose}
         visible={drawerVisible}
       >
@@ -112,7 +112,7 @@ const AddDrawer = (props) => {
                   checkable
                   checkedKeys={field.getValue('permissions')}
                   // selectedKeys={field.getValue('permissions')}
-                  style={{ maxHeight: "500px", overflow: "auto" }}
+                  style={{ maxHeight: '500px', overflow: 'auto' }}
                   dataSource={permissionState.tree}
                   defaultExpandAll
                   // editable

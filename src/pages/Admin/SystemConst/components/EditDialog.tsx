@@ -3,7 +3,7 @@ import { Dialog, Button, Form, Input, Field, Message } from '@alifd/next';
 import { useRequest } from 'ice';
 import systemConstService from '@/services/systemConst';
 
-const EditDialog = (props: { recordId: number; fetchData: Function; }) => {
+const EditDialog = (props: { recordId: number; fetchData: Function }) => {
   const { recordId, fetchData } = props;
   const field = Field.useField();
   const { init } = field;

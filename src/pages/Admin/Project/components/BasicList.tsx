@@ -72,7 +72,7 @@ const BasicList = () => {
           organizationData={organizationState.all}
         />
       </Cell>
-      <Cell colSpan={6} style={{ textAlign: "right" }}>
+      <Cell colSpan={6} style={{ textAlign: 'right' }}>
         <Search
           // inputWidth={250}
           shape="simple"
@@ -90,9 +90,9 @@ const BasicList = () => {
           <Table.Column title='所属组织' dataIndex='organization.name' align='center' />
           <Table.Column title='项目地址' dataIndex='address' align='center' />
           <Table.Column title='备注' dataIndex='remark' align='center' />
-          <Table.Column title='录入时间' cell={(_value: any, _index: number, record: { createdAt: moment.MomentInput; }) => moment(record.createdAt).format('yyyy-MM-DD HH:mm:ss')} align='center' />
+          <Table.Column title='录入时间' cell={(_value: any, _index: number, record: { createdAt: moment.MomentInput }) => moment(record.createdAt).format('yyyy-MM-DD HH:mm:ss')} align='center' />
           <Table.Column title='操作'
-            cell={(_value: any, _index: number, record: { id: number; }) => (
+            cell={(_value: any, _index: number, record: { id: number }) => (
               <div >
                 <EditDialog
                   recordId={record.id}

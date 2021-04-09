@@ -7,8 +7,8 @@ import HeaderAvatar from '@/components/HeaderAvatar';
 import Logo from '@/components/Logo';
 import Footer from '@/components/Footer';
 import accountService from '@/services/account';
-import PageNav from './components/PageNav';
 import { store as appStore } from 'ice';
+import PageNav from './components/PageNav';
 
 (function () {
   const throttle = function (type: string, name: string, obj: Window = window) {

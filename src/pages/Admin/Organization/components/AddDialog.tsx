@@ -3,7 +3,7 @@ import { Dialog, Button, Form, Input, Field, Message } from '@alifd/next';
 import { useRequest } from 'ice';
 import organizationService from '@/services/organization';
 
-const AddDialog = (props: { fetchData: Function; }) => {
+const AddDialog = (props: { fetchData: Function }) => {
   const { fetchData } = props;
   const field = Field.useField();
   const { init } = field;

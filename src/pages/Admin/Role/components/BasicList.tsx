@@ -67,7 +67,7 @@ const BasicList = () => {
       <Cell colSpan={6}>
         <AddDrawer fetchData={fetchData} />
       </Cell>
-      <Cell colSpan={6} style={{ textAlign: "right" }}>
+      <Cell colSpan={6} style={{ textAlign: 'right' }}>
         <Search
           // inputWidth={250}
           shape="simple"

@@ -74,7 +74,7 @@ const BasicList = () => {
           roleData={roleState.all}
         />
       </Cell>
-      <Cell colSpan={6} style={{ textAlign: "right" }}>
+      <Cell colSpan={6} style={{ textAlign: 'right' }}>
         <Search
           shape="simple"
           searchText=""
