@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Dialog, Button, Form, Input, Field, Message, Select } from '@alifd/next';
-import { store as appStore, useRequest } from 'ice';
+import { useRequest } from 'ice';
 import projectService from '@/services/project';
 
-const AddDialog = (props: { fetchData: Function; organizationData: any }) => {
+const AddDialog = (props: { fetchData: Function; organizationData: Record<string, any>[] }) => {
   const { fetchData, organizationData } = props;
   const field = Field.useField();
   const { init } = field;

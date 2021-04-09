@@ -15,17 +15,6 @@ const BasicList = () => {
   const [dataSource, setDataSource] = useState([]);
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
-    fetchData();
-  }, [current, size]);
-
-  useUpdateEffect(() => {
-    if (current !== 1) {
-      return setCurrent(1);
-    }
-    fetchData();
-  }, [search]);
-
   const fetchData = async () => {
     const result = await request({
       search,
@@ -37,6 +26,7 @@ const BasicList = () => {
       setTotal(result.data.count);
     }
   };
+
   const handlePaginationChange = (currentPage: number) =>
     setCurrent(currentPage);
   const handlePageSizeChange = (pageSize: number) => {
@@ -46,6 +36,16 @@ const BasicList = () => {
   const handleSearch = (value: string) =>
     setSearch(value);
 
+  useEffect(() => {
+    fetchData();
+  }, [current, size]);
+
+  useUpdateEffect(() => {
+    if (current !== 1) {
+      return setCurrent(1);
+    }
+    fetchData();
+  }, [search]);
   return (
     <ResponsiveGrid gap={20}>
       <Cell colSpan={12} style={{ textAlign: 'right' }}>

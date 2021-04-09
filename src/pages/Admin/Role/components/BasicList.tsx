@@ -10,24 +10,12 @@ import EditDrawer from './EditDrawer';
 const { Cell } = ResponsiveGrid;
 
 const BasicList = () => {
-
   const { request, loading } = useRequest(roleService.getList);
   const [current, setCurrent] = useState(1);
   const [size, setSize] = useState(10);
   const [total, setTotal] = useState(0);
   const [dataSource, setDataSource] = useState([]);
   const [search, setSearch] = useState('');
-
-  useEffect(() => {
-    fetchData();
-  }, [current, size]);
-
-  useUpdateEffect(() => {
-    if (current !== 1) {
-      return setCurrent(1);
-    }
-    fetchData();
-  }, [search]);
 
   const fetchData = async () => {
     const result = await request({
@@ -62,6 +50,17 @@ const BasicList = () => {
       Message.success(result.message);
     }
   }
+
+  useEffect(() => {
+    fetchData();
+  }, [current, size]);
+
+  useUpdateEffect(() => {
+    if (current !== 1) {
+      return setCurrent(1);
+    }
+    fetchData();
+  }, [search]);
   return (
     <ResponsiveGrid gap={20}>
       <Cell colSpan={6}>
