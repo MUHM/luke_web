@@ -12,6 +12,7 @@ const AdminOrganization = React.lazy(() => import('@/pages/Admin/Organization'))
 const AdminProject = React.lazy(() => import('@/pages/Admin/Project'));
 const AdminModule = React.lazy(() => import('@/pages/Admin/Module'));
 const AdminPermission = React.lazy(() => import('@/pages/Admin/Permission'));
+const AdminSystemConst = React.lazy(() => import('@/pages/Admin/SystemConst'));
 const Home = React.lazy(() => import('@/pages/Web/Home'));
 
 const routerConfig = [
@@ -60,6 +61,10 @@ const routerConfig = [
       {
         path: '/permission',
         component: AdminPermission,
+      },
+      {
+        path: '/systemconst',
+        component: AdminSystemConst,
       },
       {
         path: '/',

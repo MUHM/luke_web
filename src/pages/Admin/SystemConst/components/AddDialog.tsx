@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Dialog, Button, Form, Input, Field, Message } from '@alifd/next';
 import { useRequest } from 'ice';
-import organizationService from '@/services/organization';
+import systemConstService from '@/services/systemConst';
 
-const AddDialog = (props: { fetchData: Function; }) => {
+const AddDialog = (props) => {
   const { fetchData } = props;
   const field = Field.useField();
   const { init } = field;
   const [dialogVisible, setVisible] = useState(false);
-  const { request, loading } = useRequest(organizationService.create);
+  const { request, loading } = useRequest(systemConstService.create);
 
   const onOk = async () => {
     const { errors } = await field.validatePromise();
@@ -42,36 +42,31 @@ const AddDialog = (props: { fetchData: Function; }) => {
         onOk={onOk}
         onCancel={onClose}
         onClose={onClose}
-        title="组织管理-新增"
+        title="系统常量-新增"
       >
         <Form field={field} labelCol={{ fixedSpan: 7 }} wrapperCol={{ span: 14 }}>
-          <Form.Item required label="组织名称" >
+          <Form.Item required label="Key" >
             <Input
-              {...init('name', {
+              {...init('constKey', {
                 rules: [{ required: true, message: '必填选项' }],
               })}
             />
           </Form.Item>
-          <Form.Item required label="联系人"  >
+          <Form.Item required label="Value"  >
             <Input
-              {...init('contact', {
+              {...init('constValue', {
                 rules: [{ required: true, message: '必填选项' }],
               })}
             />
           </Form.Item>
-          <Form.Item label="联系电话"  >
+          <Form.Item label="类型"  >
             <Input
-              {...init('telphone')}
+              {...init('type')}
             />
           </Form.Item>
-          <Form.Item label="联系地址"  >
+          <Form.Item label="备注"  >
             <Input
-              {...init('address')}
-            />
-          </Form.Item>
-          <Form.Item label="组内排序"  >
-            <Input
-              {...init('sort')}
+              {...init('remark')}
             />
           </Form.Item>
         </Form>

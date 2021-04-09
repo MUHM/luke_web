@@ -10,8 +10,3 @@ declare module '*.gif'
 declare module '*.bmp'
 declare module '*.tiff'
 declare module '*.json'
-
-export interface ISelectItem {
-  label: string;
-  value: string|number;
-}

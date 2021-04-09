@@ -1,6 +1,6 @@
 import accountService from '@/services/account';
 import moduleService from '@/services/module';
-import { ISelectItem } from '@/typings';
+import { ISelectItem } from '@/luke';
 import { WebCache } from '@/utils/cache';
 
 interface IState {

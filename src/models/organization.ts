@@ -1,5 +1,5 @@
 import organizationService from '@/services/organization';
-import { ISelectItem } from '@/typings';
+import { ISelectItem } from '@/luke';
 
 interface IState {
   all: [];

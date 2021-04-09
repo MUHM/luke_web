@@ -8,6 +8,7 @@ import Logo from '@/components/Logo';
 import Footer from '@/components/Footer';
 import accountService from '@/services/account';
 import PageNav from './components/PageNav';
+import { store as appStore } from 'ice';
 
 (function () {
   const throttle = function (type: string, name: string, obj: Window = window) {
@@ -42,7 +43,9 @@ export default function BasicLayout({
   children: React.ReactNode;
 }) {
   const [username, setUsername] = useState('Name');
+  const [systemConst, dispatchers] = appStore.useModel('systemConst');
   useEffect(() => {
+    dispatchers.getWebConfig();
     setUsername(accountService.getTruename());
   }, []);
   const getDevice: IGetDevice = width => {
@@ -80,8 +83,9 @@ export default function BasicLayout({
       >
         <Shell.Branding>
           <Logo
-            text="写着玩系统"
+            text={systemConst.webConfig.title}
             url="/admin"
+            image={systemConst.webConfig.logo}
           />
         </Shell.Branding>
         <Shell.Navigation
@@ -110,7 +114,11 @@ export default function BasicLayout({
 
         <Shell.Content>{children}</Shell.Content>
         <Shell.Footer>
-          <Footer />
+          <Footer
+            image={systemConst.webConfig.logo}
+            copyright={systemConst.webConfig.copyright}
+            text={systemConst.webConfig.title}
+          />
         </Shell.Footer>
       </Shell>
     </ConfigProvider>

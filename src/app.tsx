@@ -74,7 +74,7 @@ const appConfig: IAppConfig = {
           Message.show({
             type: 'error',
             title: '错误消息',
-            content: `${error.response?.status}:请求出错`,
+            content: `${error.response?.status}:${error.response?.data?.message || '请求出错'}`,
           });
           return Promise.reject(error);
         }

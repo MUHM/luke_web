@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Input, Message, Form } from '@alifd/next';
-import { useRequest, useHistory } from 'ice';
+import { useRequest, useHistory, store as appStore } from 'ice';
 import { v1 } from 'uuid';
 
 import accountService from '@/services/account';
 import { WebCache } from '@/utils/cache';
 
 import styles from './index.module.scss';
-// import logo from './logo.png';
 
 const { Item } = Form;
 let imgToken = v1();
@@ -20,19 +19,12 @@ export interface IDataSource {
   imgSrc?: string
 }
 
-export interface IConfigLogin {
-  title: string,
-}
-
 const DEFAULT_DATA: IDataSource = {
   username: 'anakin',
   password: '123456',
   imgCode: '1',
   imgToken,
   imgSrc: `/api/imgcode/${imgToken}`,
-};
-const DEFAULT_CONFIG: IConfigLogin = {
-  title: '写着玩系统',
 };
 interface LoginProps {
   // eslint-disable-next-line react/require-default-props
@@ -49,6 +41,7 @@ const LoginBlock: React.FunctionComponent<LoginProps> = (props: LoginProps): JSX
   const [postData, setValue] = useState(dataSource);
 
   const { request, loading } = useRequest(accountService.login);
+  const [systemConst, dispatchers] = appStore.useModel('systemConst');
 
   const onSubmit = (e: Event) => {
     e.preventDefault();
@@ -109,19 +102,22 @@ const LoginBlock: React.FunctionComponent<LoginProps> = (props: LoginProps): JSX
   useEffect(() => {
     const cache = new WebCache();
     cache.clear();
+    dispatchers.getWebConfig();
   }, []);
 
   return (
     <div className={styles.LoginBlock}>
       <div className={styles.innerBlock}>
-        {/* <a href="#" > */}
-        {/* <img
-          className={styles.logo}
-          src={logo}
-          alt="logo"
-        /> */}
-        <span className={styles.title}>{DEFAULT_CONFIG.title}</span>
-        {/* </a> */}
+        <a href="#" >
+          {systemConst.webConfig.logo &&
+            <img
+              className={styles.logo}
+              src={systemConst.webConfig.logo}
+              alt="logo"
+            />
+          }
+          <span className={styles.title}>{systemConst.webConfig.title}</span>
+        </a>
         <div className={styles.desc}>
           <span>用户登录</span>
         </div>

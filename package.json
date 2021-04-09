@@ -1,7 +1,7 @@
 {
-  "name": "@alifd/fusion-design-pro",
-  "version": "0.1.0",
-  "description": "使用 TypeScript，包含大量 UI 区块，比如图表、表单等。",
+  "name": "luke_web",
+  "version": "0.0.1",
+  "description": "写着玩的客户端",
   "dependencies": {
     "@alifd/next": "^1.22.16",
     "@alifd/theme-1": "^0.3.4",
@@ -29,7 +29,7 @@
     "@ice/spec": "^1.0.0",
     "build-plugin-fusion": "^0.1.0",
     "build-plugin-moment-locales": "^0.1.0",
-    "eslint": "^6.0.1",
+    "eslint": "^7.23.0",
     "ice.js": "^1.0.0",
     "stylelint": "^13.2.0"
   },
@@ -53,8 +53,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alibaba-fusion/materials/tree/master/scaffolds/fusion-design-pro"
+    "url": "https://github.com/MUHM/luke_web"
   },
-  "private": true,
-  "originTemplate": "@alifd/fusion-design-pro"
+  "private": true
 }

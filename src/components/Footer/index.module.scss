@@ -1,13 +1,21 @@
 .footer {
   line-height: 20px;
   text-align: center;
+  img {
+    display: inline-block;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  .logo {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    vertical-align: middle;
+  }
+  .copyright {
+    font-size: 12px;
+  }
 }
 
-.logo {
-  font-weight: bold;
-  font-size: 16px;
-}
 
-.copyright {
-  font-size: 12px;
-}

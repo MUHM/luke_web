@@ -1,5 +1,5 @@
 import roleService from '@/services/role';
-import { ISelectItem } from '@/typings';
+import { ISelectItem } from '@/luke';
 
 interface IState {
   all: [];
