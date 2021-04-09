@@ -1,14 +1,21 @@
 import React from 'react';
 import { ResponsiveGrid } from '@alifd/next';
-// import Theme from '@/components/Theme';
+import WeiboHot from './components/WeiboHot';
+import ZhihuHot from './components/ZhihuHot';
 
 const { Cell } = ResponsiveGrid;
 
 const Home = () => {
   return (
     <ResponsiveGrid gap={20}>
-      <Cell colSpan={12}>
-        {/* <Theme /> */}
+      <Cell colSpan={4}>
+        <ZhihuHot />
+      </Cell>
+      <Cell colSpan={4}>
+        <WeiboHot />
+      </Cell>
+      <Cell colSpan={4}>
+        {/* <WeiboHot /> */}
       </Cell>
     </ResponsiveGrid>
   );
