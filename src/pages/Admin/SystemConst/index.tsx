@@ -5,18 +5,18 @@ import BasicList from './components/BasicList';
 
 const { Cell } = ResponsiveGrid;
 
-const Organization = () => {
+const SystemConst = () => {
   return (
     <ResponsiveGrid gap={20}>
       <Cell colSpan={12}>
         <PageHeader
-          title="组织管理"
+          title="系统常量"
           breadcrumbs={[
             {
-              name: '组织管理',
+              name: '系统常量',
             },
             {
-              name: '组织列表',
+              name: '系统常量列表',
             },
           ]}
         />
@@ -28,4 +28,4 @@ const Organization = () => {
   )
 };
 
-export default Organization;
+export default SystemConst;
