@@ -2,12 +2,12 @@ import systemConstService from '@/services/systemConst';
 import { WebCache } from '@/utils/cache';
 
 interface IWebConfig {
-  title: string,
-  logo: string,
-  copyright: string,
+  title: string;
+  logo: string;
+  copyright: string;
 }
 interface IState {
-  webConfig: IWebConfig
+  webConfig: IWebConfig;
 }
 
 export default {

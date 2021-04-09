@@ -4,7 +4,7 @@ import { store as appStore, useRequest } from 'ice';
 import DrawerButton from '@/components/DrawerButton';
 import roleService from '@/services/role';
 
-const AddDrawer = (props: { fetchData: Function; }) => {
+const AddDrawer = (props: { fetchData: Function }) => {
   const { fetchData } = props;
   const field = Field.useField({
     values: {
@@ -57,7 +57,7 @@ const AddDrawer = (props: { fetchData: Function; }) => {
       <Drawer
         title="角色管理-新增"
         width={520}
-        closeMode={'mask'}
+        closeMode="mask"
         onClose={onClose}
         visible={drawerVisible}
       >
@@ -100,7 +100,7 @@ const AddDrawer = (props: { fetchData: Function; }) => {
                   checkable
                   checkedKeys={field.getValue('permissions')}
                   // selectedKeys={field.getValue('permissions')}
-                  style={{ maxHeight: "500px", overflow: "auto" }}
+                  style={{ maxHeight: '500px', overflow: 'auto' }}
                   dataSource={permissionState.tree}
                   defaultExpandAll
                   // editable

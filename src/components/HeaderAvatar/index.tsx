@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Avatar, Overlay, Menu, Message, Icon, Field, Dialog, Form, Input } from '@alifd/next';
 import { useRequest, useHistory } from 'ice';
 import accountService from '@/services/account';
+import { WebCache } from '@/utils/cache';
 import styles from './index.module.scss';
 import github from './github.png';
-import { WebCache } from '@/utils/cache';
 
 const { Item } = Menu;
 const { Popup } = Overlay;
@@ -74,7 +74,7 @@ const HeaderAvatar = props => {
 
   const cleanCache = () => {
     for (let i = 0; i < cache.storage.length; i++) {
-      let key = cache.key(i);
+      const key = cache.key(i);
       if (key && key !== 'credentials') {
         cache.removeItem(key)
       }
@@ -130,7 +130,7 @@ const HeaderAvatar = props => {
         onCancel={onClose}
         onClose={onClose}
         title="修改密码"
-        hasMask={true}
+        hasMask
       >
         <Form field={field} labelCol={{ fixedSpan: 6 }} wrapperCol={{ span: 14 }}>
           <Form.Item required label="旧密码"  >

@@ -11,8 +11,8 @@ export interface ISolutionLinkProps {
 
 const SolutionLink = ({ title, icon, url }: ISolutionLinkProps) => (
   <div className={styles.link}>
-    <Link to={url || "/"} title={title || ""}>
-      <Icon type={icon || "smile"} />
+    <Link to={url || '/'} title={title || ''}>
+      <Icon type={icon || 'smile'} />
     </Link>
   </div >
 );

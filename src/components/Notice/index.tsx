@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Icon, Badge, Overlay, Avatar, Message, List } from '@alifd/next';
+import { Icon, Badge, Overlay, Avatar, List } from '@alifd/next';
 import styles from './index.module.scss';
 
 export interface INotcieItem {
@@ -29,8 +29,8 @@ export interface NoticeProps {
 }
 
 const Notice: React.FC<NoticeProps> = ({ noticeList }) => {
-  const [ badgeCount, setBageCount ] = useState(0);
-  const [ readList, setReadList ] = useState<number[]>([]);
+  const [badgeCount, setBageCount] = useState(0);
+  const [readList, setReadList] = useState<number[]>([]);
 
   function markAsRead(id: number) {
     setReadList([...readList, id]);
@@ -91,7 +91,7 @@ const Notice: React.FC<NoticeProps> = ({ noticeList }) => {
         })}
         {renderList.length === 0 && (
           <List.Item className={styles.empty}>
-              你已查看所有通知
+            你已查看所有通知
           </List.Item>
         )}
       </List>

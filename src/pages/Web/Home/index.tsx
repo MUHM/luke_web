@@ -6,8 +6,7 @@ const { Cell } = ResponsiveGrid;
 const Home = () => {
   return (
     <ResponsiveGrid gap={20}>
-      <Cell colSpan={12}>
-      </Cell>
+      <Cell colSpan={12} />
     </ResponsiveGrid>
   );
 };

@@ -30,7 +30,7 @@ const EditDialog = (props) => {
     const result = await userService.show(id);
     if (result?.code === 200) {
       field.setValues(result.data.user);
-      field.setValues({ roles: result.data.roles.map((item: { id: number; }) => item.id) });
+      field.setValues({ roles: result.data.roles.map((item: { id: number }) => item.id) });
       setVisible(true);
     }
   }
@@ -73,7 +73,7 @@ const EditDialog = (props) => {
           </Form.Item>
           <Form.Item label="所属角色"  >
             <Select
-              style={{ width: "100%" }}
+              style={{ width: '100%' }}
               mode="multiple"
               {...init('roles')}
               dataSource={roleData}

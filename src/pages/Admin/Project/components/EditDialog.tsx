@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Dialog, Button, Form, Input, Field, Message, Select } from '@alifd/next';
-import { store as appStore, useRequest } from 'ice';
+import { useRequest } from 'ice';
 import projectService from '@/services/project';
 
-const EditDialog = (props: { recordId: number; fetchData: Function; organizationData: any; }) => {
+const EditDialog = (props: { recordId: number; fetchData: Function; organizationData: any }) => {
   const { recordId, fetchData, organizationData } = props;
   const field = Field.useField();
   const { init } = field;
@@ -66,7 +66,7 @@ const EditDialog = (props: { recordId: number; fetchData: Function; organization
           </Form.Item>
           <Form.Item required label="所属组织"  >
             <Select
-              style={{ width: "100%" }}
+              style={{ width: '100%' }}
               {...init('organizationId')}
               dataSource={organizationData}
             />

@@ -37,7 +37,7 @@
     "start": "icejs start",
     "build": "icejs build",
     "lint": "npm run eslint && npm run stylelint",
-    "eslint": "eslint --cache --ext .js,.jsx ./",
+    "eslint": "eslint --cache --ext .ts,.tsx ./",
     "stylelint": "stylelint ./**/*.scss",
     "design": "icejs build --design"
   },
