@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Dialog, Button, Form, Input, Field, Message, Select } from '@alifd/next';
-import { store as appStore, useRequest } from 'ice';
+import { useRequest } from 'ice';
 import projectService from '@/services/project';
 
 const EditDialog = (props: { recordId: number; fetchData: Function; organizationData: any; }) => {

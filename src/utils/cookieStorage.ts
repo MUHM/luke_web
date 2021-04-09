@@ -1,5 +1,4 @@
 import Cookies from 'js-cookie'
-
 class CookieStorage implements Storage {
   clear(): void {
     Object.keys(Cookies.get()).forEach(element => this.removeItem(element));

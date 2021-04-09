@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useUpdateEffect } from 'ahooks';
 import { Table, ResponsiveGrid, Pagination, Message, Button, Dialog, Divider, Search } from '@alifd/next';
 import { store as appStore, useRequest } from 'ice';
 import moment from 'moment';
@@ -21,7 +22,14 @@ const BasicList = () => {
   useEffect(() => {
     fetchData();
     dispatchers.fetchOrganizations();
-  }, [current, size, search]);
+  }, [current, size]);
+
+  useUpdateEffect(() => {
+    if (current !== 1) {
+      return setCurrent(1);
+    }
+    fetchData();
+  }, [search]);
 
   const fetchData = async () => {
     const result = await request({
@@ -34,11 +42,14 @@ const BasicList = () => {
       setTotal(result.data.count)
     }
   }
-  const handlePaginationChange = (current: React.SetStateAction<number>) => setCurrent(current);
-  const handlePageSizeChange = (size: React.SetStateAction<number>) => {
-    setSize(size);
+  const handlePaginationChange = (currentPage: number) =>
+    setCurrent(currentPage);
+  const handlePageSizeChange = (pageSize: number) => {
+    setSize(pageSize);
     setCurrent(1);
-  }
+  };
+  const handleSearch = (value: string) =>
+    setSearch(value);
   const handleRemove = (id: number) => {
     Dialog.confirm({
       title: '提示',
@@ -46,7 +57,6 @@ const BasicList = () => {
       onOk: () => handleRemoveSubmit(id)
     });
   }
-  const handleSearch = (value: React.SetStateAction<string>) => setSearch(value);
   const handleRemoveSubmit = async (id: number) => {
     const result = await projectService.destroy(id);
     if (result?.code === 200) {
@@ -105,7 +115,7 @@ const BasicList = () => {
           pageSizePosition='end'
           onPageSizeChange={handlePageSizeChange}
           total={total}
-          totalRender={total => ` 总记录数: ${total}`}
+          totalRender={totalCount => ` 总记录数: ${totalCount}`}
           current={current}
           onChange={handlePaginationChange}
         />
