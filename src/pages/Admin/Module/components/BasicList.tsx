@@ -9,7 +9,6 @@ import EditDrawer from './EditDrawer';
 const { Cell } = ResponsiveGrid;
 
 const BasicList = () => {
-
   const { request, loading } = useRequest(moduleService.getList);
   const [current, setCurrent] = useState(1);
   const [size, setSize] = useState(10);
